@@ -1,0 +1,23 @@
+
+==================================================================================
+SW-1:  Evolving Artificial Life
+----------------------------------------------------------------------------------
+Coupling optimisation algorithms with simple two dimensional physics models
+investigate the evolution of artificial life.  
+Can you evolve creatures to solve specific challenges and tasks?
+Can you evolve cars to navigate obstacle courses?
+----------------------------------------------------------------------------------
+
+Initial Ideas:
+
+1.	Car maze - (junction?) -- Really like this idea
+        machine learning for an interesction, any crash is a failure.
+        randon spawning pedestrians - Jaywalkers
+        longest the time running is the goal, reward for every car that makes it accross
+        upon spawn decide an exit and aim to get there avoiding any crashes.
+        train one car to drive first, then spawn more and more??
+            - build the environment first
+            - working cars and exits/points (like a game)
+            - then make the computer drive
+2.	Race - walking robots?
+3.	3D/2D??
