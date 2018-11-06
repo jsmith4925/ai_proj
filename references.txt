@@ -1,0 +1,20 @@
+
+
+\bibitem{10} https://arxiv.org/pdf/1604.07316.pdf
+\bibitem{11} http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.86.636&rep=rep1&type=pdf
+\bibitem{12} Wood, Oliver Edward(2005)
+		Autonomous characters in virtual environments: The technologies involved in artificial
+		life and their aspects on perceived intelligence and playability of computer games, 
+		Durham theses, Durham University. Available at Durham E-Theses Online: http://etheses.dur.ac.uk/2374/ 
+\bibitem{13} International Journal of Machine Learning and Computing, Vol. 2, No. 1, February 2012
+\bibitem{14} https://arxiv.org/pdf/1801.07612.pdf
+
+\bibitem{15} https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/
+\bibitem{16} https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
+
+\bibitem{17} https://link.springer.com/chapter/10.1007%2F978-3-642-02094-0_7
+
+
+\bibitem{18} https://arongranberg.com/astar/
+\bibitem{19} http://www-m3.ma.tum.de/foswiki/pub/MN0506/WebHome/dijkstra.pdf
+

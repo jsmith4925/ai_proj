@@ -20,4 +20,10 @@ Initial Ideas:
             - working cars and exits/points (like a game)
             - then make the computer drive
 2.	Race - walking robots?
-3.	3D/2D??
+3.	3D/2D?? - 2D
+4.  Game playing robots? 
+		- "beat the machine"
+		want to look into software and hardware??
+5.	Aduino?? - Want to be 'hey thats pretty cool' level of difficult.
+
+6. Game of life style - survival of the fittest? bugs competeing for food??

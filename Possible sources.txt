@@ -1,0 +1,26 @@
+
+======================YOUTUBE====================================================================
+Deep Learning Cars - https://www.youtube.com/watch?v=Aut32pR5PQA
+MIT Intro to Deep Learning and Self-Driving Cars - https://www.youtube.com/watch?v=1L0TKZQcUtA
+Unity Cars - https://www.youtube.com/watch?v=8V2sX9BhAW8
+Neuroevolution Car learns to drive - https://www.youtube.com/watch?v=5lJuEW-5vr8
+Autonomous Intersection - https://www.youtube.com/watch?v=4pbAI40dK0A
+CGP Grey's Traffic Solution - https://www.youtube.com/watch?v=iHzzSao6ypE
+TEDx The Rise of AI through Deep Learning - https://www.youtube.com/watch?v=uawLjkSI7Mo
+Google Self-Driving Car Project https://www.youtube.com/watch?v=Uj-rK8V-rik
+AI | Creatures teaching itslef to drive https://www.youtube.com/watch?v=vSFAh5rKj9A
+
+
+===============================EDU===============================================================
+http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.86.636&rep=rep1&type=pdf
+http://etheses.dur.ac.uk/2374/1/2374_384.pdf
+https://ieeexplore.ieee.org/abstract/document/7842858
+https://arxiv.org/pdf/1604.07316.pdf
+http://www.ijmlc.org/papers/82-A1090.pdf
+https://arxiv.org/pdf/1801.07612.pdf - good for the maths
+https://www.networkworld.com/article/2911456/big-data-business-intelligence/how-connected-cars-will-optimize-traffic-flow.html - junction stuff, control center V invidividual control
+https://www.cs.cornell.edu/courses/cs3152/2013sp/lectures/19-Pathfinding.pdf
+
+==========================================code======================================
+https://medium.com/@nicholas.w.swift/easy-a-star-pathfinding-7e6689c7f7b2
+https://github.com/brean/python-pathfinding
