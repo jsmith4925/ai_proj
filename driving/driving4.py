@@ -4,8 +4,8 @@ import time
 import math
 
 pygame.init()
-track = pygame.image.load("resources/images/track.png")
-player = pygame.image.load("resources/images/block.png")
+track = pygame.image.load("driving\\resources\\images\\track.png")
+player = pygame.image.load("driving\\resources\\images\\block.png")
 screen = pygame.display.set_mode((500,500))
 trackx= 0
 tracky= -1000

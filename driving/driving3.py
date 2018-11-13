@@ -4,7 +4,7 @@ import time
 import math
 
 pygame.init()
-player = pygame.image.load("resources/images/block.png")
+player = pygame.image.load("driving/resources/images/block.png")
 screen = pygame.display.set_mode((480,500))
 xpos = 200
 ypos = 200
@@ -15,7 +15,7 @@ forward = 0
 running = 1
 while running:
     pygame.display.set_caption('driving')
-    screen.fill(0)
+    screen.fill(1)
 
     
     if keys[0]==True:

@@ -3,7 +3,7 @@ from pygame.locals import *
 import time
 
 pygame.init()
-player = pygame.image.load("resources/images/block.png")
+player = pygame.image.load("driving/resources/images/block.png")
 screen = pygame.display.set_mode((480,500))
 xpos = 200
 ypos = 200
