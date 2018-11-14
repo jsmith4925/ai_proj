@@ -14,10 +14,10 @@ LRED    =(255,128,128)
 pygame.init()
 
 #Smallest space: 5.
-space=10
+space=20
 
-length=20
-width=20
+length=10
+width=30
 
 sizex=200+length*space
 sizey=200+width*space
@@ -41,6 +41,8 @@ for x in range(width):
     pygame.draw.line(screen,BLACK,[100,(x*space+100)],[sizex-100,(x*space+100)],2)        #Horizontal lines.
 
 pygame.display.flip()
+
+
 
 place = [[0 for y in range(width)] for x in range(length)]
 wall = [[[1 for z in range(4)] for y in range(width)] for x in range(length)]
