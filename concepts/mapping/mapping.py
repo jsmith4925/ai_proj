@@ -45,12 +45,7 @@ for x in range(SECT_Y_COUNT):
 for x in range(SECT_X_COUNT):
     pygame.draw.line(screen,BLACK,[25,(x*SECTOR_AREA+25)],[sizeX-25,(x*SECTOR_AREA+25)],2)
 
-# Fill the grid
-for x in range(SECT_X_COUNT):
-    grid.append([])
-    for y in range(SECT_Y_COUNT):
-        pygame.draw.rect(screen, GRASS_GREEN, [27+(y*SECTOR_AREA),27+(x*SECTOR_AREA),SECTOR_AREA-2,SECTOR_AREA-2], 0)
-        grid[x].append(0)
+
 
 pygame.display.flip()
 print(grid)

@@ -11,38 +11,52 @@
 """
 import pygame
  
-# Define some colors
+# Set colors.
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
-GREEN = (51, 204, 51)
 RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+GRASS_GREEN = (51, 204, 51)
+BLUE = (0, 0, 255)
+PURPLE = (128, 0, 128)
+LIGHT_RED    =(255,128,128)
+ROAD_BROWN = (83, 64, 45)
  
 # This sets the WIDTH and HEIGHT of each grid location
-WIDTH = 20
-HEIGHT = 20
+WIDTH = 40
+HEIGHT = 40
  
 # This sets the margin between each cell
-MARGIN = 1
- 
+MARGIN = 2
+RES = 8
 # Create a 2 dimensional array. A two dimensional
 # array is simply a list of lists.
 grid = []
-for row in range(10):
+for row in range(RES):
     # Add an empty array that will hold each cell
     # in this row
     grid.append([])
-    for column in range(10):
+    for column in range(RES):
         grid[row].append(0)  # Append a cell
  
 # Set row 1, cell 5 to one. (Remember rows and
 # column numbers start at zero.)
-grid[1][5] = 1
+for row in range(RES):
+    # Add an empty array that will hold each cell
+    # in this row
+    grid[0][row] = 2
+    grid[row][RES-1] =2
+    for column in range(RES):
+        grid[column][0] = 2
+        grid[RES-1][column] =2
  
+grid[0][RES/2] = 1
+grid[RES-1][RES/2] = 1
 # Initialize pygame
 pygame.init()
  
 # Set the HEIGHT and WIDTH of the screen
-WINDOW_SIZE = [255, 255]
+WINDOW_SIZE = [(WIDTH+MARGIN)*RES, (HEIGHT+MARGIN)*RES]
 screen = pygame.display.set_mode(WINDOW_SIZE)
  
 # Set title of screen
@@ -66,17 +80,24 @@ while not done:
             column = pos[0] // (WIDTH + MARGIN)
             row = pos[1] // (HEIGHT + MARGIN)
             # Set that location to one
-            grid[row][column] = 1
-            print("Click ", pos, "Grid coordinates: ", row, column)
- 
+            if grid[row][column] == 0:
+                grid[row][column] = 1
+            elif grid[row][column] == 1:
+                grid[row][column] = 2
+            elif grid[row][column] == 2:
+                grid[row][column] = 1
+            #print("Click ", pos, "Grid coordinates: ", row, column)
+ #when stuck - last square made wall becomes road
     # Set the screen background
     screen.fill(BLACK)
  
     # Draw the grid
-    for row in range(10):
-        for column in range(10):
-            color = WHITE
+    for row in range(RES):
+        for column in range(RES):
+            color = GRASS_GREEN
             if grid[row][column] == 1:
+                color = ROAD_BROWN
+            elif grid[row][column] == 2:
                 color = GREEN
             pygame.draw.rect(screen,
                              color,

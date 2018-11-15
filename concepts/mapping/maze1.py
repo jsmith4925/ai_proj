@@ -14,10 +14,10 @@ LRED    =(255,128,128)
 pygame.init()
 
 #Smallest space: 5.
-space=20
+space=40
 
 length=10
-width=30
+width=10
 
 sizex=200+length*space
 sizey=200+width*space
