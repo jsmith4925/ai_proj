@@ -44,7 +44,7 @@ class Enemy(pygame.sprite.Sprite):
         self.rect = self.surf.get_rect(
             center=(random.randint(820, 900), random.randint(0, 600))
         )
-        self.speed = random.randint(5, 20)
+        self.speed = random.randint(1, 5)
 
     def update(self):
         self.rect.move_ip(-self.speed, 0)

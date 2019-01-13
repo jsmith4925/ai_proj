@@ -47,10 +47,6 @@ size = (sizeX, sizeY)
 screen = pygame.display.set_mode(size)
 grid = []
 
-# #Format to int count starting at 0
-# SECT_X_COUNT -= 1
-# SECT_Y_COUNT -= 1
-
 
 def new_start():
     edge_rows = [[random.randint(0, SECT_Y_COUNT-1), 0],
@@ -81,7 +77,8 @@ def get_adjacent_values(full_grid, current):
 
 
 def return_random_unset(adjecent_values):
-    directions = [i for i, e in enumerate(adjecent_values) if e == UNSET] #the location of the UNSET values in the list
+    # the location of the UNSET values in the list
+    directions = [i for i, e in enumerate(adjecent_values) if e == UNSET]
     if directions:
         move = random.choice(directions)
     else:
@@ -107,15 +104,17 @@ def set_block_as_choice(grid, current, direction, block_type):
 
 def plan_route(grid, current, finish):
     # [N,E,S,W]
-    #ToDo While end not found loop
+    # ToDo While end not found loop 
     move = return_random_unset(get_adjacent_values(grid, current))
     # next_current = current + move
-    grid = set_block_as_choice(grid, current, move, ROUTE)    
-    remaining_unset = [i for i, e in enumerate(get_adjacent_values(grid, current)) if e == UNSET]#remeber last wall here by finding coord of move+current
+    grid = set_block_as_choice(grid, current, move, ROUTE)
+    # remeber last wall here by finding coord of move+current
+    remaining_unset = [i for i, e in enumerate(
+        get_adjacent_values(grid, current)) if e == UNSET]
     if remaining_unset:
         for remaining in remaining_unset:
             set_block_as_choice(grid, current, remaining, WALL)
-    
+
     return grid
 
 
@@ -149,8 +148,10 @@ def new_maze():
 
     # The entrance to the finish always needs to be clear
     # we set this as road by default here
-    finish_opening_direction = return_random_unset(get_adjacent_values(grid, finish))
-    grid = set_block_as_choice(grid, finish, finish_opening_direction, ROUTE)  # condense me
+    finish_opening_direction = return_random_unset(
+        get_adjacent_values(grid, finish))
+    grid = set_block_as_choice(
+        grid, finish, finish_opening_direction, GOAL)  # condense me?
 
     # Plan Route
     grid_complete = plan_route(grid, start, finish)
