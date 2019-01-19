@@ -20,6 +20,7 @@ SECT_Y_COUNT = 40
 sizeX = (MARGIN*2)+(((SECT_X_COUNT // 2) * 2 + 1)*SECTOR_AREA)
 sizeY = (MARGIN*2)+(((SECT_Y_COUNT // 2) * 2 + 1)*SECTOR_AREA)
 size = (sizeX, sizeY)
+walls = []
 
 
 class Player:
@@ -38,6 +39,10 @@ class Player:
 
     def moveDown(self):
         self.y = self.y + self.speed
+
+class Wall(object):
+    def __init__(self, pos):
+        walls.append(self)
 
 
 class Maze:
@@ -68,6 +73,7 @@ class Maze:
                 if self.maze[y][x] == True:
                     pygame.draw.rect(_display_screen, BLACK, [
                         MARGIN+1+(x*SECTOR_AREA), MARGIN+1+(y*SECTOR_AREA), SECTOR_AREA, SECTOR_AREA], 0)
+                    Wall((x, y))
         # Draw Centre
         maze_middle_x = (SECT_X_COUNT // 2)
         maze_middle_y = (SECT_Y_COUNT // 2)
@@ -102,7 +108,7 @@ class App_Runner:
 
         pygame.display.set_caption('AI Maze')
         self._running = True
-        self._images = pygame.image.load("Build\images\sadman.png").convert()
+        self._images = pygame.image.load("Build\images\\robbert.png").convert()
         self.clock = pygame.time.Clock()
 
     def on_event(self, event):
@@ -115,7 +121,7 @@ class App_Runner:
     def on_render(self):
         self._display_screen.fill((0, 0, 0))
         self.maze.draw_maze(self._display_screen)        
-        self._images = pygame.transform.scale(self._images, (SECTOR_AREA, SECTO) ,)
+        self._images = pygame.transform.scale(self._images, (math.floor((SECTOR_AREA*0.9)), math.floor((SECTOR_AREA*0.9))))
         self._display_screen.blit(self._images, (self.player.x, self.player.y))
         pygame.display.flip()
 
