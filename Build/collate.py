@@ -90,6 +90,29 @@ def draw_maze(grid):
     return grid
 
 
+def draw_rect(x, y):
+    pygame.draw.rect(screen, (217, 217, 217),
+                     [MAP_PADDING+1+(x*BLOCK_RES),
+                      MAP_PADDING+1 + (y*BLOCK_RES),
+                      BLOCK_RES,
+                      BLOCK_RES], 0)
+
+def clean_maze(grid, x, y):
+    WALL = (0, 0, 0)
+    GOAL = (255, 0, 255)
+    # screen.fill((217, 217, 217))
+    # Fill the self.arena
+    x = (x - MAP_PADDING) // BLOCK_RES
+    y = (y - MAP_PADDING) // BLOCK_RES
+
+    for px in range(x-1, x+2):
+        for py in range(y-1, y+2):
+            if grid[py][px] == False:  # Is Wall
+                draw_rect(px, py)
+
+       
+
+
 def get_end_rect(grid):
     maze_middle_x = (GRID_X // 2)
     maze_middle_y = (GRID_Y // 2)
@@ -135,16 +158,14 @@ while running:
     key = pygame.key.get_pressed()
     if key[pygame.K_LEFT]:
         player.move(-2, 0)
-        draw_maze(grid)
     if key[pygame.K_RIGHT]:
         player.move(2, 0)
-        draw_maze(grid)
     if key[pygame.K_UP]:
         player.move(0, -2)
-        draw_maze(grid)
     if key[pygame.K_DOWN]:
         player.move(0, 2)
-        draw_maze(grid)
+
+    clean_maze(grid, player.rect.x, player.rect.y)
 
     if player.rect.colliderect(end_rect):
         print("========New Game======")
