@@ -22,8 +22,8 @@ def new_maze(width=30, height=30, complexity=.4, density=.4):
     Z[:, 0] = Z[:, -1] = 1
     # Make aisles
     for i in range(density):
-        x, y = rand.randint(0, shape[1] // 2) * 2, rand.randint(0,
-                                                                shape[0] // 2) * 2  # pick a random position
+        x = rand.randint(0, shape[1] // 2) * 2
+        y = rand.randint(0, shape[0] // 2) * 2  # pick a random position
         Z[y, x] = 1
         for j in range(complexity):
             neighbours = []
@@ -59,6 +59,3 @@ def new_blank_maze(width=30, height=30, complexity=.7, density=.7):
     Z[:, 0] = Z[:, -1] = 1
 
     return Z
-
-
-

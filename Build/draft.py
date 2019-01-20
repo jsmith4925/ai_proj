@@ -40,9 +40,17 @@ class Player:
     def moveDown(self):
         self.y = self.y + self.speed
 
-class Wall(object):
-    def __init__(self, pos):
-        walls.append(self)
+
+class Wall:
+    def __init__(self):
+        walls = []
+
+    def add_wall(self):
+        if self not in walls:
+            walls.append(self)
+
+    def print_walls(self):
+        print(len(walls))
 
 
 class Maze:
@@ -60,20 +68,22 @@ class Maze:
         BLACK = (0, 0, 0)
         WHITE = (255, 255, 255)
         RED = (255, 0, 0)
-        _display_screen.fill(WHITE)
-        # pygame.draw.rect(Surface, color, Rect, width=0)
-        pygame.draw.rect(_display_screen, (255, 255, 255, 255), [
-            MARGIN, MARGIN, sizeX, sizeY])
+
         # Fill the self.maze
         for x in range(((SECT_X_COUNT // 2) * 2 + 1)):
             for y in range(((SECT_Y_COUNT // 2) * 2 + 1)):
                 if self.maze[y][x] == False:
-                    pygame.draw.rect(_display_screen, WHITE, [
-                        MARGIN+1+(x*SECTOR_AREA), MARGIN+1+(y*SECTOR_AREA), SECTOR_AREA, SECTOR_AREA], 0)
+                    pygame.draw.rect(_display_screen, WHITE,
+                                     [MARGIN+1+(x*SECTOR_AREA),
+                                      MARGIN+1+(y*SECTOR_AREA),
+                                      SECTOR_AREA, SECTOR_AREA], 0)
                 if self.maze[y][x] == True:
-                    pygame.draw.rect(_display_screen, BLACK, [
-                        MARGIN+1+(x*SECTOR_AREA), MARGIN+1+(y*SECTOR_AREA), SECTOR_AREA, SECTOR_AREA], 0)
-                    Wall((x, y))
+                    pygame.draw.rect(_display_screen, BLACK,
+                                     [MARGIN+1+(x*SECTOR_AREA),
+                                      MARGIN+1+(y*SECTOR_AREA),
+                                         SECTOR_AREA, SECTOR_AREA],
+                                     0)
+                    Wall.add_wall((x, y))
         # Draw Centre
         maze_middle_x = (SECT_X_COUNT // 2)
         maze_middle_y = (SECT_Y_COUNT // 2)
@@ -99,8 +109,9 @@ class App_Runner:
         self._display_screen = None
         self._images = None
         self.player = Player()
-        self.clock = None
+        self.clock = pygame.time.Clock()
         self.maze = Maze()
+        self.walls = Wall()
 
     def on_init(self):
         pygame.init()
@@ -109,7 +120,6 @@ class App_Runner:
         pygame.display.set_caption('AI Maze')
         self._running = True
         self._images = pygame.image.load("Build\images\\robbert.png").convert()
-        self.clock = pygame.time.Clock()
 
     def on_event(self, event):
         if event.type == QUIT:
@@ -120,8 +130,9 @@ class App_Runner:
 
     def on_render(self):
         self._display_screen.fill((0, 0, 0))
-        self.maze.draw_maze(self._display_screen)        
-        self._images = pygame.transform.scale(self._images, (math.floor((SECTOR_AREA*0.9)), math.floor((SECTOR_AREA*0.9))))
+        self.maze.draw_maze(self._display_screen)
+        self._images = pygame.transform.scale(
+            self._images, (math.floor((SECTOR_AREA*0.9)), math.floor((SECTOR_AREA*0.9))))
         self._display_screen.blit(self._images, (self.player.x, self.player.y))
         pygame.display.flip()
 
@@ -163,11 +174,7 @@ class App_Runner:
                 pygame.display.flip()
 
             if (keys[K_p]):
-                self.maze.print_maze()
-
-# ==========================================================================
-# Mouse Press Logic
-# ==========================================================================
+                self.walls.print_walls()
 
             self.on_loop()
             self.on_render()
