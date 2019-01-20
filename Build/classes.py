@@ -23,7 +23,7 @@ MAP_HEIGHT = (MAP_PADDING*2)+(((GRID_Y // 2) * 2 + 1)*BLOCK_RES)
 class Player:
     x = BLOCK_RES + (MAP_PADDING * 1.1)
     y = BLOCK_RES + (MAP_PADDING * 1.1)
-    speed = 1
+    speed = 0.1
 
     def moveRight(self):
         self.x = self.x + self.speed
