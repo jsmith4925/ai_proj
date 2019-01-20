@@ -52,18 +52,11 @@ class Arena:
     def draw_arena(self, _display_screen):
         # Set colors.
         WALL = (0, 0, 0)
-        PATH = (255, 255, 255)
-        RED = (255, 0, 0)
+        GOAL = (255, 0, 255)
 
         # Fill the self.arena
         for x in range(((GRID_X // 2) * 2 + 1)):
             for y in range(((GRID_Y // 2) * 2 + 1)):
-                if self.arena[y][x] == False:
-                    pygame.draw.rect(_display_screen, PATH,
-                                     [MAP_PADDING+1+(x*BLOCK_RES),
-                                      MAP_PADDING+1+(y*BLOCK_RES),
-                                      BLOCK_RES,
-                                      BLOCK_RES], 0)
                 if self.arena[y][x] == True:  # Is Wall
                     pygame.draw.rect(_display_screen, WALL,
                                      [MAP_PADDING+1+(x*BLOCK_RES),
@@ -76,25 +69,25 @@ class Arena:
         maze_middle_x = (GRID_X // 2)
         maze_middle_y = (GRID_Y // 2)
         if self.arena[maze_middle_y][maze_middle_x] == False:
-            pygame.draw.rect(_display_screen, RED,
+            pygame.draw.rect(_display_screen, GOAL,
                              [MAP_PADDING+1+(maze_middle_x*BLOCK_RES),
                               MAP_PADDING+1+(maze_middle_y*BLOCK_RES),
                               BLOCK_RES,
                               BLOCK_RES], 0)
         elif self.arena[maze_middle_y+1][maze_middle_x] == False:
-            pygame.draw.rect(_display_screen, RED,
+            pygame.draw.rect(_display_screen, GOAL,
                              [MAP_PADDING+1+(maze_middle_x*BLOCK_RES),
                               MAP_PADDING+1+((maze_middle_y+1)*BLOCK_RES),
                               BLOCK_RES,
                               BLOCK_RES], 0)
         elif self.arena[maze_middle_y][maze_middle_x+1] == False:
-            pygame.draw.rect(_display_screen, RED,
+            pygame.draw.rect(_display_screen, GOAL,
                              [MAP_PADDING+1+((maze_middle_x+1)*BLOCK_RES),
                               MAP_PADDING+1+(maze_middle_y*BLOCK_RES),
                               BLOCK_RES,
                               BLOCK_RES], 0)
         elif self.arena[maze_middle_y-1][maze_middle_x-1] == False:
-            pygame.draw.rect(_display_screen, RED,
+            pygame.draw.rect(_display_screen, GOAL,
                              [MAP_PADDING+1+((maze_middle_x-1)*BLOCK_RES),
                               MAP_PADDING+1+((maze_middle_y-1)*BLOCK_RES),
                               BLOCK_RES,
@@ -129,7 +122,7 @@ class Program:
         pass
 
     def on_render(self):
-        self._display_screen.fill((0, 225, 0))
+        self._display_screen.fill((217, 217, 217))
         self.arena.draw_arena(self._display_screen)
         self._images = pygame.transform.scale(
             self._images,
