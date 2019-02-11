@@ -10,10 +10,10 @@ import sys
 import os
 
 # GLOBAL CONSTANTS
-BLOCK_RES = 30  # >5
+BLOCK_RES = 20  # >5
 MAP_PADDING = 5
-GRID_X = 7
-GRID_Y = 7
+GRID_X = 10
+GRID_Y = 10
 
 MAP_WIDTH = (MAP_PADDING*2)+(((GRID_X // 2) * 2 + 1)*BLOCK_RES)
 MAP_HEIGHT = (MAP_PADDING*2)+(((GRID_Y // 2) * 2 + 1)*BLOCK_RES)
@@ -97,6 +97,7 @@ def draw_rect(x, y):
                       BLOCK_RES,
                       BLOCK_RES], 0)
 
+
 def clean_maze(grid, x, y):
     WALL = (0, 0, 0)
     GOAL = (255, 0, 255)
@@ -109,8 +110,6 @@ def clean_maze(grid, x, y):
         for py in range(y-1, y+2):
             if grid[py][px] == False:  # Is Wall
                 draw_rect(px, py)
-
-       
 
 
 def get_end_rect(grid):
@@ -176,6 +175,7 @@ while running:
 
     for wall in walls:
         pygame.draw.rect(screen, (0, 0, 0), wall.rect)
+    end_rect = get_end_rect(grid)
     pygame.draw.rect(screen, (255, 0, 0), end_rect)
     pygame.draw.rect(screen, (0, 170, 255), player.rect)
     pygame.display.flip()
@@ -212,9 +212,11 @@ while running:
             # Set that location
             if grid[row][column] == False:
                 grid[row][column] = True
+
             elif grid[row][column] == True:
                 grid[row][column] = False
-            grid = draw_maze(grid)
+
+            draw_maze(grid)
             pygame.display.flip()
 
         elif event.type == QUIT:
