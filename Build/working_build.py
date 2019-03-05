@@ -1,13 +1,15 @@
 import math
-import time
+import os
 import random
-import pygame
-from pygame.locals import *
+import sys
+import time
+
 import numpy
 import numpy.random as rand
+import pygame
+from pygame.locals import *
+
 from arena_functions import *
-import sys
-import os
 
 # GLOBAL CONSTANTS
 BLOCK_RES = 20  # >5
