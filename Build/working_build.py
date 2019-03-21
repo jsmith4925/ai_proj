@@ -14,8 +14,8 @@ from arena_functions import *
 # GLOBAL CONSTANTS
 BLOCK_RES = 20  # >5
 MAP_PADDING = 5
-GRID_X = 10
-GRID_Y = 10
+GRID_X = 20
+GRID_Y = 20
 
 MAP_WIDTH = (MAP_PADDING*2)+(((GRID_X // 2) * 2 + 1)*BLOCK_RES)
 MAP_HEIGHT = (MAP_PADDING*2)+(((GRID_Y // 2) * 2 + 1)*BLOCK_RES)
